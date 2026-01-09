@@ -310,10 +310,10 @@ class _FraudDetectionScreenState extends State<FraudDetectionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('FraudShield AI'),
+        title: const Text('Fraudguard AI'),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
+        child: SingleChildScrollView(   
           padding: const EdgeInsets.all(16),
           child: Center(
             child: ConstrainedBox(
