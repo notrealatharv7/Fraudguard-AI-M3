@@ -165,8 +165,9 @@ async def predict_fraud(transaction: TransactionInput):
 
 def get_ai_explanation(transaction: TransactionInput, is_fraud: bool, risk_score: float) -> Optional[str]:
     """Calls the explanation service to get an AI-generated explanation."""
-    # The URL for the explanation service, running locally
-    url = "http://localhost:8081/explain"
+    # Get explanation service URL from environment variable, fallback to localhost for local dev
+    explanation_service_url = os.getenv("EXPLANATION_SERVICE_URL", "http://localhost:8081")
+    url = f"{explanation_service_url}/explain"
     
     payload = {
         "transactionAmount": transaction.transactionAmount,
